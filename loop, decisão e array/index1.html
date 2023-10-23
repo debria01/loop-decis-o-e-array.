@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Definindo uma classe Disciplina para representar cada disciplina
+class Disciplina {
+  constructor(nome, descricao, frequenciaMinima, notaMinima) {
+    this.nome = nome;
+    this.descricao = descricao;
+    this.frequenciaMinima = frequenciaMinima;
+    this.notaMinima = notaMinima;
+  }
+}
+
+// Função para cadastrar e imprimir os dados das disciplinas
+function cadastrarDisciplinas() {
+  const disciplinas = []; // Array para armazenar as disciplinas
+
+  while (true) {
+    // Solicitar dados da disciplina
+    const nome = prompt("Digite o nome da disciplina (ou 'sair' para encerrar):");
+    
+    // Verificar se o usuário deseja sair
+    if (nome.toLowerCase() === 'sair') {
+      break;
+    }
+
+    const descricao = prompt("Digite a descrição do conteúdo:");
+    const frequenciaMinima = parseFloat(prompt("Digite a frequência mínima necessária:"));
+    const notaMinima = parseFloat(prompt("Digite a nota mínima necessária:"));
+
+    // Criar um objeto Disciplina e adicioná-lo ao array
+    const disciplina = new Disciplina(nome, descricao, frequenciaMinima, notaMinima);
+    disciplinas.push(disciplina);
+  }
+
+  // Imprimir os dados das disciplinas cadastradas
+  console.log("Disciplinas Cadastradas:");
+  for (const disciplina of disciplinas) {
+    console.log(`Nome: ${disciplina.nome}`);
+    console.log(`Descrição: ${disciplina.descricao}`);
+    console.log(`Frequência Mínima: ${disciplina.frequenciaMinima}`);
+    console.log(`Nota Mínima: ${disciplina.notaMinima}`);
+    console.log("------------------------");
+  }
+}
+
+// Chamar a função para iniciar o processo de cadastro e impressão
+cadastrarDisciplinas();
+
+    </script>
+    
+</body>
+</html>
